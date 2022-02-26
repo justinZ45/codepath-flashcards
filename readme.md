@@ -5,7 +5,7 @@
 ### App Description
 This Flashcards app presents the user with a specific question, presented in the form of a card. When the user taps on this flashcard, the answer to the question is revealed in place of it. If it is tapped a second time, the question can be viewed again. Multiple choice answer buttons are placed beneath the flashcard, allowing the user to pick an option. If the answer is incorrect, the button will disappear. If the answer is correct, the answer will be revealed in place of the flashcard.
 
-<img src="file:///Users/justinzaluk/Desktop/CodePath%20iOS/Lab1/ezgif.com-gif-maker.gif" width=200><br>
+<img src="/Users/justinzaluk/Desktop/CodePath iOS/Lab1/ezgif.com-gif-maker.gif" width=200><br>
 
 ## Required
 - [x] Create New Project in Xcode
