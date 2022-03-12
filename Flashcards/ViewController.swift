@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         //Navigation controller contains CreationViewController
         let creationController = navigationController.topViewController as! CreationViewController
         
-        //set flashcards property to self
+        //set flashcards property to self 
         creationController.flashcardsController = self
     }
      
