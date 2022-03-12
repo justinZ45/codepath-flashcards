@@ -16,6 +16,7 @@
 		37B2ED4627CAB20B00916FD7 /* FlashcardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B2ED4527CAB20B00916FD7 /* FlashcardsTests.swift */; };
 		37B2ED5027CAB20B00916FD7 /* FlashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B2ED4F27CAB20B00916FD7 /* FlashcardsUITests.swift */; };
 		37B2ED5227CAB20B00916FD7 /* FlashcardsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B2ED5127CAB20B00916FD7 /* FlashcardsUITestsLaunchTests.swift */; };
+		37DB7AFA27DD29D70085F00B /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DB7AF927DD29D70085F00B /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		37B2ED4B27CAB20B00916FD7 /* FlashcardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B2ED4F27CAB20B00916FD7 /* FlashcardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsUITests.swift; sourceTree = "<group>"; };
 		37B2ED5127CAB20B00916FD7 /* FlashcardsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		37DB7AF927DD29D70085F00B /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				37B2ED3027CAB20900916FD7 /* SceneDelegate.swift */,
 				37B2ED3227CAB20900916FD7 /* ViewController.swift */,
 				37B2ED3427CAB20900916FD7 /* Main.storyboard */,
+				37DB7AF927DD29D70085F00B /* CreationViewController.swift */,
 				37B2ED3727CAB20B00916FD7 /* Assets.xcassets */,
 				37B2ED3927CAB20B00916FD7 /* LaunchScreen.storyboard */,
 				37B2ED3C27CAB20B00916FD7 /* Info.plist */,
@@ -261,6 +264,7 @@
 				37B2ED3327CAB20900916FD7 /* ViewController.swift in Sources */,
 				37B2ED2F27CAB20900916FD7 /* AppDelegate.swift in Sources */,
 				37B2ED3127CAB20900916FD7 /* SceneDelegate.swift in Sources */,
+				37DB7AFA27DD29D70085F00B /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

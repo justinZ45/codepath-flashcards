@@ -51,6 +51,18 @@ class ViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.9704111218, green: 0.9603078961, blue: 0.9692524076, alpha: 1);
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //destination of segue is Navigation Controller
+        let navigationController = segue.destination as! UINavigationController
+        
+        //Navigation controller contains CreationViewController
+        let creationController = navigationController.topViewController as! CreationViewController
+        
+        //set flashcards property to self
+        creationController.flashcardsController = self
+    }
      
       //hides & unhides card when tapped
     @IBAction func didTapOnFlashcard(_ sender: Any) {
@@ -61,6 +73,15 @@ class ViewController: UIViewController {
         else{
             frontLabel.isHidden = true;
         }
+    }
+    
+    func updateFlashcard(question: String, answer: String) {
+        
+        //update front of flashcard with a String of text
+        frontLabel.text = question
+        
+        //update back of flashcard with a String of text
+        backLabel.text = answer
     }
     
     //button functions to check for correct answer when user taps them

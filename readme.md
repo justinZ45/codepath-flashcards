@@ -1,11 +1,35 @@
 ## Flashcards
 
+## Lab 2
+
+### App Description
+This is an addition to the previous Flashcards project. This Flashcards app presents the user with a specific question, presented in the form of a card. When the user taps on this flashcard, the answer to the question is revealed in place of it. If it is tapped a second time, the question can be viewed again. Multiple choice answer buttons are placed beneath the flashcard, allowing the user to pick an option. If the answer is incorrect, the button will disappear. If the answer is correct, the answer will be revealed in place of the flashcard. If the "+" button is clicked, the user can enter a new question in answer, as a way to create a new flashcard.
+
+### App Walk-though
+
+
+<img src="YOUR_GIF_URL_HERE" width=200><br>
+
+
+## Required
+- [x] User can open the creation screen
+- [x] User can cancel out of the creation screen
+- [x] User can enter a new question and answer in the creation screen to then show it on the flashcard
+- [x] Push code to GitHub
+## Optional
+- [ ] User gets an error if they try to create a new flashcard with no question or answer
+- [ ] User can edit existing flashcard
+- [ ] User can add multiple choice answers in the creation screen
+
+
+
+
 ## Lab 1
 
 ### App Description
 This Flashcards app presents the user with a specific question, presented in the form of a card. When the user taps on this flashcard, the answer to the question is revealed in place of it. If it is tapped a second time, the question can be viewed again. Multiple choice answer buttons are placed beneath the flashcard, allowing the user to pick an option. If the answer is incorrect, the button will disappear. If the answer is correct, the answer will be revealed in place of the flashcard.
 
-<img src="/Users/justinzaluk/Desktop/CodePath iOS/Lab1/ezgif.com-gif-maker.gif" width=200><br>
+<img src="https://user-images.githubusercontent.com/92334995/155861966-5f2d190e-beaf-4290-a7dc-93fd2cb54ee9.gif" width=200><br>
 
 ## Required
 - [x] Create New Project in Xcode
