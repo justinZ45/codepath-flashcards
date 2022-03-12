@@ -15,7 +15,7 @@ class CreationViewController: UIViewController {
     
     @IBOutlet weak var answerTextField: UITextField!  //outlet for answer text field
     
-    override func viewDidLoad() {
+    override func viewDidLoad() { 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
