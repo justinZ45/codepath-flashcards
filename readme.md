@@ -3,7 +3,7 @@
 ## Lab 2
 
 ### App Description
-This is an addition to the previous Flashcards project. This Flashcards app presents the user with a specific question, presented in the form of a card. When the user taps on this flashcard, the answer to the question is revealed in place of it. If it is tapped a second time, the question can be viewed again. Multiple choice answer buttons are placed beneath the flashcard, allowing the user to pick an option. If the answer is incorrect, the button will disappear. If the answer is correct, the answer will be revealed in place of the flashcard. If the "+" button is clicked, the user can enter a new question in answer, as a way to create a new flashcard.
+This is an addition to the previous Flashcards project. This Flashcards app presents the user with a specific question, presented in the form of a card. When the user taps on this flashcard, the answer to the question is revealed in place of it. If it is tapped a second time, the question can be viewed again. Multiple choice answer buttons are placed beneath the flashcard, allowing the user to pick an option. If the answer is incorrect, the button will disappear. If the answer is correct, the answer will be revealed in place of the flashcard. If the "+" button is clicked, the user can enter a new question in answer, as a way to create a new flashcard. Two extra multiple choice answers can be entered, with an error being shown if text fields are empty. The user can also edit the existing flashcard by using the edit button.
 
 ### App Walk-though
 
@@ -17,9 +17,9 @@ This is an addition to the previous Flashcards project. This Flashcards app pres
 - [x] User can enter a new question and answer in the creation screen to then show it on the flashcard
 - [x] Push code to GitHub
 ## Optional
-- [ ] User gets an error if they try to create a new flashcard with no question or answer
-- [ ] User can edit existing flashcard
-- [ ] User can add multiple choice answers in the creation screen
+- [x] User gets an error if they try to create a new flashcard with no question or answer
+- [x] User can edit existing flashcard
+- [x] User can add multiple choice answers in the creation screen
 
 
 

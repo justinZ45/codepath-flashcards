@@ -62,6 +62,11 @@ class ViewController: UIViewController {
         
         //set flashcards property to self 
         creationController.flashcardsController = self
+        
+        if segue.identifier == "EditSegue" {
+        creationController.initialQuestion = frontLabel.text
+        creationController.initialAnswer = backLabel.text
+        }
     }
      
       //hides & unhides card when tapped
@@ -75,13 +80,18 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateFlashcard(question: String, answer: String) {
+    func updateFlashcard(question: String, answer: String, extraAnswerOne: String?, extraAnswerTwo: String?) {
         
         //update front of flashcard with a String of text
         frontLabel.text = question
         
         //update back of flashcard with a String of text
         backLabel.text = answer
+        
+        //sets and updates titles for each button
+        btnOptionOne.setTitle(extraAnswerOne, for: .normal)
+        btnOptionTwo.setTitle(answer, for: .normal)
+        btnOptionThree.setTitle(extraAnswerTwo, for: .normal)
     }
     
     //button functions to check for correct answer when user taps them
