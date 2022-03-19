@@ -212,7 +212,7 @@ class ViewController: UIViewController {
         //Log it
         print("🎉 Flashcards saved to UserDefaults")
     }
-    
+     
     func readSavedFlashcards () {
         
         //Read dictionary array from disk (if any)

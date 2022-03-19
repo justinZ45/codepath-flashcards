@@ -7,7 +7,7 @@ In this add-on to the Flashcards project, the user can now create and browse thr
 
 ### App Walk-though
 
-![ezgif-4-5b0d2a5341](https://user-images.githubusercontent.com/92334995/159123752-2dff6427-a724-4888-a8e3-911983b52e3d.gif)
+
 
 
 ## Required
