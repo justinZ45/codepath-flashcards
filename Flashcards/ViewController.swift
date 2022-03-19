@@ -138,7 +138,7 @@ class ViewController: UIViewController {
     //button functions to check for correct answer when user taps them
     @IBAction func didTapOptionOne(_ sender: Any) {
         btnOptionOne.isHidden = true;
-    }
+    } 
     
     @IBAction func didTapOptionTwo(_ sender: Any) {
         frontLabel.isHidden = true;
