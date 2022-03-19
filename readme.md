@@ -1,5 +1,27 @@
 ## Flashcards
 
+## Lab 3
+
+### App Description
+In this add-on to the Flashcards project, the user can now create and browse through multiple flashcards that are saved to disk, and are present when the application is re-opened.
+
+### App Walk-though
+
+![ezgif-4-5b0d2a5341](https://user-images.githubusercontent.com/92334995/159123752-2dff6427-a724-4888-a8e3-911983b52e3d.gif)
+
+
+## Required
+- [x] User can browse through multiple flashcards
+- [x] User can re-open the app and see previously created flashcards
+- [x] Push code to GitHub
+## Optional
+- [ ] User can delete a flashcard
+- [ ] User can edit existing flashcard
+- [ ] User can store multiple choice questions
+
+
+
+
 ## Lab 2
 
 ### App Description
@@ -7,7 +29,9 @@ This is an addition to the previous Flashcards project. This Flashcards app pres
 
 ### App Walk-though
 
+
 ![ezgif-4-5b0d2a5341](https://user-images.githubusercontent.com/92334995/159123752-2dff6427-a724-4888-a8e3-911983b52e3d.gif)
+
 
 
 ## Required
