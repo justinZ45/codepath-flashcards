@@ -7,8 +7,7 @@ This is an addition to the previous Flashcards project. This Flashcards app pres
 
 ### App Walk-though
 
-
-![ezgif-5-3b1e226939](https://user-images.githubusercontent.com/92334995/158038850-538a6329-b6ec-49fd-898d-740ac8742a58.gif)
+![ezgif-4-5b0d2a5341](https://user-images.githubusercontent.com/92334995/159123752-2dff6427-a724-4888-a8e3-911983b52e3d.gif)
 
 
 ## Required
