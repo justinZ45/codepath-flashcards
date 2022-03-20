@@ -10,6 +10,8 @@ import UIKit
 struct Flashcard {
     var question: String
     var answer: String
+    var extraAnswerOne: String
+    var extraAnswerTwo: String
 }
 
 class ViewController: UIViewController {
@@ -41,7 +43,8 @@ class ViewController: UIViewController {
         //Adding intial flashcard if needed
         
         if flashcards.count == 0 {
-        updateFlashcard(question: "Who Was the Only President to Serve for More than Two Terms?", answer: "Franklin Delano Roosevelt", extraAnswerOne: "William Howard Taft", extraAnswerTwo: "Theodore Roosevelt")
+        updateFlashcard(question: "Who Was the Only President to Serve for More than Two Terms?", answer: "Franklin Delano Roosevelt", extraAnswerOne: "William Howard Taft", extraAnswerTwo: "Theodore Roosevelt",
+            isExisting: false)
         } else {
             updateLabels()
             updateNextPrevButtons()
@@ -62,19 +65,19 @@ class ViewController: UIViewController {
         btnOptionOne.layer.cornerRadius = 20.0;
         btnOptionOne.clipsToBounds = true;
         btnOptionOne.layer.borderWidth = 3.0;
-        btnOptionOne.layer.borderColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1);
+        btnOptionOne.layer.borderColor = #colorLiteral(red: 0, green: 0.716732204, blue: 1, alpha: 1)
 
         btnOptionTwo.layer.cornerRadius = 20.0;
         btnOptionTwo.clipsToBounds = true;
         btnOptionTwo.layer.borderWidth = 3.0;
-        btnOptionTwo.layer.borderColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1);
+        btnOptionTwo.layer.borderColor =  #colorLiteral(red: 0, green: 0.716732204, blue: 1, alpha: 1)
         
         btnOptionThree.layer.cornerRadius = 20.0;
         btnOptionThree.clipsToBounds = true;
         btnOptionThree.layer.borderWidth = 3.0;
-        btnOptionThree.layer.borderColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1);
+        btnOptionThree.layer.borderColor =  #colorLiteral(red: 0, green: 0.716732204, blue: 1, alpha: 1)
         
-        view.backgroundColor = #colorLiteral(red: 0.9704111218, green: 0.9603078961, blue: 0.9692524076, alpha: 1);
+        view.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
     }
     
@@ -86,7 +89,7 @@ class ViewController: UIViewController {
         //Navigation controller contains CreationViewController
         let creationController = navigationController.topViewController as! CreationViewController
         
-        //set flashcards property to self 
+        //set flashcards property to self
         creationController.flashcardsController = self
         
         if segue.identifier == "EditSegue" {
@@ -106,17 +109,21 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateFlashcard(question: String, answer: String, extraAnswerOne: String?, extraAnswerTwo: String?) {
+    func updateFlashcard(question: String, answer: String, extraAnswerOne: String, extraAnswerTwo: String, isExisting: Bool) {
         
-        let flashcard = Flashcard(question: question, answer: answer)
+        let flashcard = Flashcard(question: question, answer: answer,
+        extraAnswerOne: extraAnswerOne, extraAnswerTwo: extraAnswerTwo)
+        
+        if isExisting {
+            
+            //Replace existing flashcard
+            flashcards[currentIndex] = flashcard
+            
+            
+        } else {
         
         //Add flashcard to the flashcards array
         flashcards.append(flashcard)
-        
-        //sets and updates titles for each button
-        btnOptionOne.setTitle(extraAnswerOne, for: .normal)
-        btnOptionTwo.setTitle(answer, for: .normal)
-        btnOptionThree.setTitle(extraAnswerTwo, for: .normal)
         
         //Logging to the console
         print("😎 Added new flashcard")
@@ -125,6 +132,8 @@ class ViewController: UIViewController {
         //Update current index
         currentIndex = flashcards.count - 1
         print("😎 Our current index is \(currentIndex)")
+            
+        }
         
         //Update buttons
         updateNextPrevButtons()
@@ -132,13 +141,15 @@ class ViewController: UIViewController {
         //Update labels
         updateLabels()
         
+        //Save to disk
         saveAllFlashcardsToDisk()
+        
     }
     
     //button functions to check for correct answer when user taps them
     @IBAction func didTapOptionOne(_ sender: Any) {
         btnOptionOne.isHidden = true;
-    } 
+    }
     
     @IBAction func didTapOptionTwo(_ sender: Any) {
         frontLabel.isHidden = true;
@@ -198,13 +209,18 @@ class ViewController: UIViewController {
         //Update labels
         frontLabel.text = currentFlashcard.question
         backLabel.text = currentFlashcard.answer
+        
+        btnOptionOne.setTitle(currentFlashcard.extraAnswerOne, for: .normal)
+        btnOptionTwo.setTitle(currentFlashcard.answer, for: .normal)
+        btnOptionThree.setTitle(currentFlashcard.extraAnswerTwo, for: .normal)
+        
     }
     
     func saveAllFlashcardsToDisk() {
         
         //From flashcard array to dictionary array
         let dictionaryArray = flashcards.map { (card) -> [String: String] in
-            return ["question": card.question, "answer": card.answer]
+            return ["question": card.question, "answer": card.answer, "extraAnswerOne": card.extraAnswerOne, "extraAnswerTwo": card.extraAnswerTwo]
         }
         //Save array on disk using UserDefaults
         UserDefaults.standard.set(dictionaryArray, forKey: "flashcards")
@@ -220,7 +236,7 @@ class ViewController: UIViewController {
             
             //In here we know for sure we have a dictionary array
             let savedCards = dictionaryArray.map { dictionary -> Flashcard in
-                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!)
+                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!, extraAnswerOne: dictionary["extraAnswerOne"]!, extraAnswerTwo: dictionary["extraAnswerTwo"]!)
             }
             
             //Put all these cards in our flashcards array
@@ -229,5 +245,43 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func didTapOnDelete(_ sender: Any) {
+        
+        //Show confirmation
+        let alert = UIAlertController(title: "Delete flashcard", message: "Are you sure you want to delete it?", preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.deleteCurrentFlashcard()
+        }
+        
+        alert.addAction(deleteAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
+    
+    func deleteCurrentFlashcard(){
+        
+        //Delete current flashcard
+        flashcards.remove(at: currentIndex)
+        
+        //Special case: Check if last card was deleted
+        if currentIndex > flashcards.count - 1 {
+            currentIndex = flashcards.count - 1
+        }
+        
+        
+        updateNextPrevButtons()
+        
+        updateLabels()     //update using functions
+        
+        saveAllFlashcardsToDisk()
+    }
+    
+    
 }
+
 

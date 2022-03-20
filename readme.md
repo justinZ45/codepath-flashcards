@@ -3,7 +3,7 @@
 ## Lab 3
 
 ### App Description
-In this add-on to the Flashcards project, the user can now create and browse through multiple flashcards that are saved to disk, and are present when the application is re-opened.
+In this add-on to the Flashcards project, the user can now create and browse through multiple flashcards that are saved to disk, and are present when the application is re-opened. Flashcards can also now be deleted, edited, and have multiple choice questions added to them, which are all saved upon re-opening.
 
 ### App Walk-though
 
@@ -15,9 +15,9 @@ In this add-on to the Flashcards project, the user can now create and browse thr
 - [x] User can re-open the app and see previously created flashcards
 - [x] Push code to GitHub
 ## Optional
-- [ ] User can delete a flashcard
-- [ ] User can edit existing flashcard
-- [ ] User can store multiple choice questions
+- [x] User can delete a flashcard
+- [x] User can edit existing flashcard
+- [x] User can store multiple choice questions
 
 
 

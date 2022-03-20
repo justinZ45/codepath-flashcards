@@ -21,13 +21,14 @@ class CreationViewController: UIViewController {
     
     var initialQuestion: String?
     var initialAnswer: String?
+
     
-    override func viewDidLoad() { 
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         questionTextField.text = initialQuestion  //grab initial question
-        answerTextField.text = initialAnswer    //grab initial answer
+        answerTextField.text = initialAnswer //grab initial answer
     }
     
     @IBAction func didTapOnCancel(_ sender: Any) {
@@ -64,8 +65,14 @@ class CreationViewController: UIViewController {
         
         else
         {
+            //See if it's existing
+            var isExisting = false
+            if initialQuestion != nil {
+                isExisting = true
+            }
+    
         //Calls function to update the flashcard
-            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswerOne: extraAnswerOneText!, extraAnswerTwo: extraAnswerTwoText!)
+            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswerOne: extraAnswerOneText!, extraAnswerTwo: extraAnswerTwoText!, isExisting: isExisting)
         
         //Dismisses screen
         dismiss(animated: true)
@@ -85,3 +92,4 @@ class CreationViewController: UIViewController {
     */
 
 }
+
