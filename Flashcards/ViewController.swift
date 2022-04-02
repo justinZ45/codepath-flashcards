@@ -117,7 +117,7 @@ class ViewController: UIViewController {
             }
             
         }
-    }
+    } 
     
     func animateCardOut() {
         
