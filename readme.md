@@ -7,6 +7,7 @@ Finally, in this add-on to the Flashcards project, there is now a custom app ico
 
 ### App Walk-though 
 
+![ezgif-5-24becc1b77](https://user-images.githubusercontent.com/92334995/161398994-073e624b-4427-4402-a315-a1d0b7bd05e7.gif)
 
 
 ## Required
