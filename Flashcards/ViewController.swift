@@ -34,6 +34,9 @@ class ViewController: UIViewController {
     //Current index of flashcard
     var currentIndex = 0
     
+    //Button to remember what the correct answer is
+    var correctAnswerButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,6 +84,39 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //First start with the flashcard invisible and slightly smaller in size
+        card.alpha = 0.0
+        card.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        btnOptionOne.alpha = 0.0
+        btnOptionOne.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        btnOptionTwo.alpha = 0.0
+        btnOptionTwo.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        btnOptionThree.alpha = 0.0
+        btnOptionThree.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        //Animation
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations:
+        {
+            self.card.alpha = 1.0
+            self.card.transform = CGAffineTransform.identity
+            
+            self.btnOptionOne.alpha = 1.0
+            self.btnOptionOne.transform = CGAffineTransform.identity
+            
+            self.btnOptionTwo.alpha = 1.0
+            self.btnOptionTwo.transform = CGAffineTransform.identity
+            
+            self.btnOptionThree.alpha = 1.0
+            self.btnOptionThree.transform = CGAffineTransform.identity
+        })
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //destination of segue is Navigation Controller
@@ -117,7 +153,7 @@ class ViewController: UIViewController {
             }
             
         }
-    } 
+    }
     
     func animateCardOut() {
         
@@ -221,15 +257,37 @@ class ViewController: UIViewController {
     
     //button functions to check for correct answer when user taps them
     @IBAction func didTapOptionOne(_ sender: Any) {
-        btnOptionOne.isHidden = true;
+        
+        //If correct answer flip flashcard, else disable button and show front label
+        if btnOptionOne == correctAnswerButton {
+            flipFlashcard()
+        } else {
+            frontLabel.isHidden = false
+            btnOptionOne.isEnabled = false
+        }
+        
     }
     
     @IBAction func didTapOptionTwo(_ sender: Any) {
-        frontLabel.isHidden = true;
+        
+        //If correct answer flip flashcard, else disable button and show front label
+        if btnOptionTwo == correctAnswerButton {
+            flipFlashcard()
+        } else {
+            frontLabel.isHidden = false
+            btnOptionTwo.isEnabled = false
+        }
     }
     
     @IBAction func didTapOptionThree(_ sender: Any) {
-        btnOptionThree.isHidden = true;
+        
+        //If correct answer flip flashcard, else disable button and show front label
+        if btnOptionThree == correctAnswerButton {
+            flipFlashcard()
+        } else {
+            frontLabel.isHidden = false
+            btnOptionThree.isEnabled = false
+        }
     }
     
     
@@ -283,10 +341,26 @@ class ViewController: UIViewController {
         frontLabel.text = currentFlashcard.question
         backLabel.text = currentFlashcard.answer
         
-        btnOptionOne.setTitle(currentFlashcard.extraAnswerOne, for: .normal)
-        btnOptionTwo.setTitle(currentFlashcard.answer, for: .normal)
-        btnOptionThree.setTitle(currentFlashcard.extraAnswerTwo, for: .normal)
+        //Update buttons
+        let buttons = [btnOptionOne, btnOptionTwo, btnOptionThree].shuffled()
         
+        let answers = [currentFlashcard.answer, currentFlashcard.extraAnswerOne, currentFlashcard.extraAnswerTwo].shuffled()
+        
+        //Iterate over both arrays at the same time
+        for(button, answer) in zip(buttons,answers) {
+
+        //Set the title of this random button, with a random answer
+        button?.setTitle(answer, for: .normal)
+            
+            if answer == currentFlashcard.answer {
+                correctAnswerButton = button
+            }
+            
+        }
+        btnOptionOne.isEnabled = true
+        btnOptionTwo.isEnabled = true
+        btnOptionThree.isEnabled = true
+        frontLabel.isHidden = false
     }
     
     func saveAllFlashcardsToDisk() {
